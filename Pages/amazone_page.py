@@ -33,13 +33,13 @@ class AmazonPage:
         except Exception:
             pass
         driver.implicitly_wait(10)
-        driver.find_element(By.XPATH, self.amz_lang_btn).click()
-        time.sleep(2)
-        dropdwn = driver.find_element(By.ID, self.amz_lang_dropdwn)
+        # driver.find_element(By.XPATH, self.amz_lang_btn).click()
+        # time.sleep(2)
+        # dropdwn = driver.find_element(By.ID, self.amz_lang_dropdwn)
         base_obj = BaseClass(driver)
-        base_obj.selectOptionByValue(dropdwn, 'INR')
-        time.sleep(2)
-        driver.find_element(By.XPATH, self.amz_lang_save_btn).click()
+        # base_obj.selectOptionByValue(dropdwn, 'INR')
+        # time.sleep(2)
+        # driver.find_element(By.XPATH, self.amz_lang_save_btn).click()
         # a_price = driver.find_element_by_id("priceblock_ourprice")
         time.sleep(3)
         try:

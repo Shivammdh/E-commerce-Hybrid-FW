@@ -7,7 +7,7 @@ from Utilites.BasePage import BaseClass
 
 
 class CromaPage:
-    '''flipkart locators and driver are initialized'''
+    '''croma locators and driver are initialized'''
 
     def __init__(self, driver):
         self.driver = driver
@@ -18,7 +18,7 @@ class CromaPage:
 
     def croma_compare(self, source_link):
         driver = self.driver
-        driver.switch_to.new_window('WINDOW')
+        # driver.switch_to.new_window('WINDOW')
         driver.get(source_link)
         # time.sleep(2)
         # driver.refresh()

@@ -1,5 +1,4 @@
 import configparser
-from pprint import pprint
 
 
 def get_data():
@@ -11,5 +10,3 @@ def get_data():
     remote_url=config.get("db", "remote_executer")
     return f_url,a_url,c_url,remote_url
 
-# ans=get_data()
-# pprint(ans)

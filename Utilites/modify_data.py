@@ -8,15 +8,28 @@ class ModifyData:
         return prices
 
     def modify_people_rate_data(self,flipkart_people_rate,amazon_pepol_rate,corma_pepole_rating):
-        f_rate, a_rate, c_rate = int(flipkart_people_rate.split()[0]), int(amazon_pepol_rate.split()[0]), int(
-            corma_pepole_rating.split()[0])
-        total_peoples_rating = [f_rate, a_rate, c_rate]
+        f_rate= [flipkart_people_rate.split()[0], amazon_pepol_rate.split()[0],
+            corma_pepole_rating.split()[0]]
+        total_peoples_rating = []
+        for vp in f_rate:
+            if ',' in vp:
+                val = vp.replace(',', '')
+                total_peoples_rating.append(int(val))
+            else:
+                total_peoples_rating.append(int(vp))
+        # total_peoples_rating = [f_rate, a_rate, c_rate]
         return total_peoples_rating
 
     def modify_reviews(self,flipkart_review,amazon_review,corma_pepole_review):
-        f_reviw, a_review, c_review = int(flipkart_review.split()[0]), int(amazon_review.split()[0]), int(
-            corma_pepole_review.split()[0])
-        reviews=[f_reviw, a_review, c_review]
+        f_reviw=[flipkart_review.split()[0],amazon_review.split()[0],corma_pepole_review.split()[0]]
+
+        reviews=[]
+        for vr in f_reviw:
+            if ',' in vr:
+                val = vr.replace(',', '')
+                reviews.append(int(val))
+            else:
+                reviews.append(int(vr))
         return reviews
 
     def modify_rating_in_stars(self, flipkart_rating, amazon_rating, corma_rating):
