@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        PYTHON_HOME = "C:\Users\shivam.sharma\AppData\Local\Programs\Python\Python39\python.exe" // Replace with your Python installation path
+        PYTHON_HOME = "C:\\Users\\shivam.sharma\\AppData\\Local\\Programs\\Python\\Python39\\python.exe" // Replace with your Python installation path
         PATH = "${env.PYTHON_HOME}\\Scripts;${env.PATH}"
     }
     
