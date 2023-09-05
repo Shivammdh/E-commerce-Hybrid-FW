@@ -33,6 +33,7 @@ class EcommerceTest(unittest.TestCase):
         cls.browser = browser
         # create a webdriver object for chrome-option and configure
         option = webdriver.ChromeOptions()
+        option.page_load_strategy='eager'
         option.add_experimental_option('useAutomationExtension', False)
         option.add_argument('--ignore-certificate-errors')
         option.add_argument('--start-maximized')
@@ -234,19 +235,19 @@ class EcommerceTest(unittest.TestCase):
 
             print(f"\n{cls.product} with Highest Rating:")
             for k, v in dct.items():
-                if highest_rating_product[0] in v:
+                if highest_rating_product[1] in v:
                     print(
                         f"company:{k},Price: {highest_rating_product[0]}, Rating: {highest_rating_product[1]}, Number of Ratings: {highest_rating_product[2]}, Number of reviews: {highest_rating_product[3]}")
 
             print(f"\n{cls.product} with Highest Number of Ratings:")
             for k, v in dct.items():
-                if highest_num_ratings_product[0] in v:
+                if highest_num_ratings_product[2] in v:
                     print(
                         f"Company:{k},Price: {highest_num_ratings_product[0]}, Rating: {highest_num_ratings_product[1]}, Number of Ratings: {highest_num_ratings_product[2]},Number of reviews: {highest_num_ratings_product[3]}")
 
             print(f"\n{cls.product} with Highest Number of Reviews:")
             for k, v in dct.items():
-                if highest_reviews[0] in v:
+                if highest_reviews[3] in v:
                     print(
                         f"Company:{k},Price: {highest_reviews[0]}, Rating: {highest_reviews[1]}, Number of Ratings: {highest_reviews[2]},Number of reviews: {highest_reviews[3]}")
         except Exception as e:
