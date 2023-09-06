@@ -15,7 +15,7 @@ stages {
         stage('Setup') {
             steps {
                 // Set up your Python environment (e.g., virtualenv)
-                def newEnv = ["D:\\Windows\\cmd.exe"]
+                def newEnv = ["PATH+=%SystemRoot%\\system32"]
                 bat(script: "set", returnStatus: true, env: newEnv)
                 bat 'python -m venv venv'
                 bat 'venv\\Scripts\\activate'
