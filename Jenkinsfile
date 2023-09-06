@@ -1,10 +1,16 @@
 pipeline {
     agent any
     
-    environment {
-        PYTHON_HOME = "C:\\Users\\shivam.sharma\\AppData\\Local\\Programs\\Python\\Python39\\python.exe" // Replace with your Python installation path
-        PATH = "${env.PYTHON_HOME}\\Scripts;${env.PATH}"
-    }
+   stage('Setup') {
+            steps {
+                // Set up your Python environment (e.g., virtualenv)
+                sh '''
+                    python3 -m venv venv
+                    source venv/bin/activate
+                    pip install -r requirements.txt
+                '''
+            }
+        }
     
     stages {
         stage('Checkout') {
@@ -19,22 +25,17 @@ pipeline {
             }
         }
         
-        stage('Setup') {
-            steps {
-                bat "python -m pip install -r requirements.txt" // Install necessary packages
-            }
-        }
+        // stage('Setup') {
+        //     steps {
+        //         bat "python -m pip install -r requirements.txt" // Install necessary packages
+        //     }
+        // }
         
         stage('Run Selenium Script') {
             steps {
-                bat "python -m Utilites.PassArgument" // Replace with the path to your script
+                sh "python -m Utilites.PassArgument" // Replace with the path to your script
             }
         }
     }
     
-    // post {
-    //     always {
-    //         // You can add cleanup or notification steps here
-    //     }
-    // }
 }
