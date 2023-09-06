@@ -1,21 +1,17 @@
 pipeline {
     agent any
 stages {
-    
-   stage('Setup') {
-            steps {
-                // Set up your Python environment (e.g., virtualenv)
-                sh '''
-                    python3 -m venv venv
-                    source venv/bin/activate
-                    pip install -r requirements.txt
-                '''
-            }
-        }
-    
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Shivammdh/E-commerce-Hybrid-FW.git']]])
+            }
+        }
+        stage('Setup') {
+            steps {
+                // Set up your Python environment (e.g., virtualenv)
+                bat 'python -m venv venv'
+                bat 'venv\\Scripts\\activate'
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('Build') {
@@ -33,7 +29,7 @@ stages {
         
         stage('Run Selenium Script') {
             steps {
-                sh "python -m Utilites.PassArgument" // Replace with the path to your script
+                bat "python -m Utilites.PassArgument" // Replace with the path to your script
             }
         }
     }
