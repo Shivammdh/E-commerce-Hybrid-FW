@@ -1,5 +1,6 @@
 pipeline {
     agent any
+stages {
     
    stage('Setup') {
             steps {
@@ -12,7 +13,6 @@ pipeline {
             }
         }
     
-    stages {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Shivammdh/E-commerce-Hybrid-FW.git']]])
