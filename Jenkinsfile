@@ -15,24 +15,24 @@ stages {
         stage('Setup') {
             steps {
                 // Set up your Python environment (e.g., virtualenv)
-                def newEnv = ["PATH+=%SystemRoot%\\system32"]
-                bat(script: "set", returnStatus: true, env: newEnv)
-                bat 'python -m venv venv'
-                bat 'venv\\Scripts\\activate'
-                bat 'pip install -r requirements.txt'
+                // def newEnv = ["PATH+=%SystemRoot%\\system32"]
+                // bat(script: "set", returnStatus: true, env: newEnv)
+                // bat 'python -m venv venv'
+                // bat 'venv\\Scripts\\activate'
+                bat "D:\\Windows\\cmd.exe /c pip install -r requirements.txt"
             }
         }
         
         
         // stage('Setup') {
         //     steps {
-        //         bat "python -m pip install -r requirements.txt" // Install necessary packages
+        //         bat "D:\\Windows\\cmd.exe /c python -m pip install -r requirements.txt" // Install necessary packages
         //     }
         // }
         
         stage('Run Selenium Script') {
             steps {
-                bat "python -m Utilites.PassArgument" // Replace with the path to your script
+                bat "D:\\Windows\\cmd.exe /c python -m Utilites.PassArgument" // Replace with the path to your script
             }
         }
     }
