@@ -27,6 +27,10 @@ class EcommerceTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.flipkart_link,cls.amazon_link,cls.croma_link,cls.remote_link=get_data()
+        # cls.flipkart_link="https://www.flipkart.com/oneplus-11-5g-eternal-green-256-gb/p/itm668119d115289?pid=MOBGMUHCGYAU8WX6&lid=LSTMOBGMUHCGYAU8WX6YJSBOE&marketplace=FLIPKART&sattr[]=color&sattr[]=storage&sattr[]=ram&st=color"
+        # cls.amazon_link=
+        # cls.croma_link=
+        # cls.remote_link=
         cls.test = TestFail()
         cls.hbflag=False
         cls.excu = excu

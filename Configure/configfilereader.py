@@ -3,7 +3,7 @@ import configparser
 
 def get_data():
     config = configparser.ConfigParser()
-    config.read(r'.\\Configure\ConfigFile.properties')
+    config.read(r'.//Configure/ConfigFile.properties')
     f_url=config.get("db", "flipkart_url")
     a_url=config.get("db", "amazon_url")
     c_url=config.get("db", "croma_url")

@@ -52,5 +52,11 @@ class AmazonPage:
         amazon_price = a_price.text
         amazon_rating = driver.find_element(By.XPATH, self.amz_rate).text
         amazon_pepol_rate = driver.find_element(By.ID, self.amz_people_rate).text
-        amazon_review = driver.find_element(By.XPATH, self.amz_rview).text
+        try:
+            if driver.find_element(By.XPATH, self.amz_rview).is_displayed():
+                amazon_review = driver.find_element(By.XPATH, self.amz_rview).text
+        except Exception:
+            amazon_review="0"
         return amazon_price, amazon_rating, amazon_pepol_rate, amazon_review
+
+#//a[@id='askATFLink']/span
