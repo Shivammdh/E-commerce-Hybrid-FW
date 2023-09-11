@@ -1,5 +1,3 @@
-import os
-import sys
 import time
 from selenium import webdriver
 from Pages.amazone_page import AmazonPage
@@ -11,7 +9,7 @@ from Utilites.modify_data import ModifyData
 import unittest
 from Utilites.PassArgument import browser,excu
 from Utilites.failuer import TestFail
-from Utilites.hub_node_conection import start_grid,close_grid
+from Utilites.SeleniumServer.hub_node_conection import start_grid,close_grid
 from Configure.configfilereader import get_data
 import logging
 from Utilites import write_test_result
@@ -41,6 +39,8 @@ class EcommerceTest(unittest.TestCase):
         option.add_experimental_option('useAutomationExtension', False)
         option.add_argument('--ignore-certificate-errors')
         option.add_argument('--start-maximized')
+        option.set_capability("platformName", "Windows 10")
+        option.set_capability("browserName", browser)
         option.add_experimental_option("useAutomationExtension", False)
         option.add_experimental_option("excludeSwitches", ["enable-automation"])
         option.add_argument("--disable-blink-features=AutomationControlled")
